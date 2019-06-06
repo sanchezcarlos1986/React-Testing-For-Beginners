@@ -1,4 +1,3 @@
-/* eslint react/no-did-mount-set-state: 0 */
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Overdrive from 'react-overdrive';
