@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, cleanup, fireEvent } from 'react-testing-library'
+import { render, cleanup } from 'react-testing-library'
 import NewMovie from './NewMovie'
 
 // Unmount everything from the dom after each test
@@ -10,8 +10,7 @@ test('<NewMovie />', () => {
   const {
     // debug,
     getByTestId,
-    queryByTestId,
-    getByText,
+    queryByTestId
   } = render(<NewMovie />)
 
   // Outputs dom as string
