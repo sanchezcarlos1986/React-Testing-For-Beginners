@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, cleanup, waitForElement } from 'react-testing-library'
+import { render, cleanup, waitForElement } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import MoviesList from './MoviesList'
 

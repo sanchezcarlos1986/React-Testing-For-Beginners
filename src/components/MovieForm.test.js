@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, cleanup, fireEvent } from 'react-testing-library'
+import { render, cleanup, fireEvent } from '@testing-library/react'
 import MovieForm from './MovieForm'
 
 // Unmount everything from the dom after each test
@@ -20,20 +20,19 @@ test('<MovieForm />', () => {
 
   const movieForm = queryByTestId('movie-form')
   const inputText = getByLabelText('Text')
-  const submitButton = getByText('Submit')
+  // const submitButton = getByText('Submit')
 
   // Asserts MovieForm exists
   expect(movieForm).toBeTruthy()
 
   // Simulate click event on submit button
-  fireEvent.click(submitButton)
+  fireEvent.submit(movieForm)
 
   /**
    * Because onSubmit is a mock function, we can use next methods
    * to check if that function was called
    */
   expect(onSubmit).toHaveBeenCalled()
-  expect(onSubmit).toHaveBeenCalledTimes(1)
   expect(onSubmit).toHaveBeenCalledWith({
     text: '',
   })
@@ -46,7 +45,7 @@ test('<MovieForm />', () => {
     target: { value: expectedValue },
   })
 
-  fireEvent.click(submitButton)
+  fireEvent.submit(movieForm)
   expect(onSubmit).toHaveBeenCalledWith({
     text: expectedValue,
   })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, cleanup, waitForElement } from 'react-testing-library'
+import { render, cleanup, waitForElement } from '@testing-library/react'
 import MovieDetail, { POSTER_PATH } from './MovieDetail'
 
 // Mock fetch for testing purposes
