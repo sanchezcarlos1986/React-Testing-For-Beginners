@@ -32,5 +32,6 @@ module.exports = {
     "expect": true,
     "afterEach": true,
     "jest": true,
+    "describe": true,
   }
 };
