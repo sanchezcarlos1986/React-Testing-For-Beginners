@@ -1,28 +1,20 @@
 
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export default class Counter extends Component {
-  state = {
-    count: 0,
-  }
+function Counter() {
+  const [count, setCount] = useState(0)
 
-  count = () => {
-    const { count } = this.state
-    this.setState({ count: count + 1 })
-  }
-
-  render() {
-    const { count } = this.state
-    return (
-      <div className="hello">
-        <button
-          type="button"
-          onClick={this.count}
-          data-testid="counter-button"
-        >
-          {count}
-        </button>
-      </div>
-    )
-  }
+  return (
+    <div className="hello">
+      <button
+        type="button"
+        onClick={() => setCount(count + 1)}
+        data-testid="counter-button"
+      >
+        {count}
+      </button>
+    </div>
+  )
 }
+
+export default Counter

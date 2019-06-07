@@ -25,7 +25,8 @@ module.exports = {
     "react/jsx-filename-extension": 0,
     "function-paren-newline": 0,
     "semi": 0,
-    "comma-dangle": 0
+    "comma-dangle": 0,
+    "react-hooks/exhaustive-deps": "none"
   },
   "globals": {
     "test": true,

@@ -11,7 +11,6 @@ test('<MovieForm />', () => {
   // Renders component
   const {
     queryByTestId,
-    getByText,
     getByLabelText,
   } = render(<MovieForm submitForm={onSubmit} />)
 
