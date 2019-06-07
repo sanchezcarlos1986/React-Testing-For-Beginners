@@ -1,41 +1,44 @@
 /* eslint react/no-did-mount-set-state: 0 */
-import React, { PureComponent } from 'react';
-import styled from 'styled-components';
-import Movie from './Movie';
+import React, { PureComponent } from 'react'
+import styled from 'styled-components'
+import Movie from './Movie'
+import apiKey from './api_key'
 
 class MoviesList extends PureComponent {
   state = {
-    movies: [],
-  };
+    movies: []
+  }
 
   async componentDidMount() {
     try {
       const res = await fetch(
-        'https://api.themoviedb.org/3/discover/movie?api_key=hi&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1',
-      );
-      const movies = await res.json();
-      movies.success && this.setState({
-        movies: movies.results,
-      });
+        `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`,
+      )
+      const movies = await res.json()
+      console.log('movies:', movies)
+      movies.results.length && this.setState({
+        movies: movies.results
+      })
     } catch (e) {
-      console.log(e);
+      console.log(e)
     }
   }
 
   render() {
+    const { movies } = this.state
     return (
       <MovieGrid>
-        {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
+        {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
       </MovieGrid>
-    );
+    )
   }
 }
 
-export default MoviesList;
+export default MoviesList
 
 const MovieGrid = styled.div`
   display: grid;
   padding: 1rem;
   grid-template-columns: repeat(6, 1fr);
   grid-row-gap: 1rem;
-`;
+`
