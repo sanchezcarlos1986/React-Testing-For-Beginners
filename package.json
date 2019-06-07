@@ -18,7 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --no-cache",
-    "coverage": "yarn test --coverage --collectCoverageFrom=src/components/*.js",
+    "coverage": "yarn test --coverage --watchAll=false --collectCoverageFrom=src/components/**/*.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
