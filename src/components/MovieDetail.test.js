@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react'
 import { render, cleanup, waitForElement } from '@testing-library/react'
 import MovieDetail, { POSTER_PATH } from './MovieDetail'
