@@ -3,6 +3,10 @@ import { render, cleanup, waitForElement } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import MoviesList from './MoviesList'
 
+const originalError = console.error
+beforeAll(() => { console.error = jest.fn() })
+afterAll(() => { console.error = originalError })
+
 // Mock fetch for testing purposes
 global.fetch = require('jest-fetch-mock')
 

@@ -34,5 +34,7 @@ module.exports = {
     "afterEach": true,
     "jest": true,
     "describe": true,
+    "beforeAll": true,
+    "afterAll": true,
   }
 };

@@ -2,6 +2,10 @@ import React from 'react'
 import { render, cleanup, waitForElement } from '@testing-library/react'
 import MovieDetail, { POSTER_PATH } from './MovieDetail'
 
+const originalError = console.error
+beforeAll(() => { console.error = jest.fn() })
+afterAll(() => { console.error = originalError })
+
 // Mock fetch for testing purposes
 global.fetch = require('jest-fetch-mock')
 
