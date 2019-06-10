@@ -18,13 +18,14 @@ function MovieDetail({ match }) {
       const movieResult = await res.json()
       setMovie(movieResult)
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.log(e)
     }
   }
 
   useEffect(() => {
     getMovieDetail()
-  })
+  }, [])
 
   if (!movie.id) return null
 
@@ -36,7 +37,7 @@ function MovieDetail({ match }) {
         </Overdrive>
         <AppContextConsumer>
           {
-            value => console.log({ value })
+            value => <p>{value.title}</p>
           }
         </AppContextConsumer>
         <div>
