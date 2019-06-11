@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Overdrive from 'react-overdrive'
 import PropTypes from 'prop-types'
+import { AppContextConsumer } from './context'
 import { Poster } from './Movie'
 import apiKey from './api_key'
 
@@ -17,6 +18,7 @@ function MovieDetail({ match }) {
       const movieResult = await res.json()
       setMovie(movieResult)
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.log(e)
     }
   }
@@ -33,6 +35,11 @@ function MovieDetail({ match }) {
         <Overdrive id={`${movie.id}`}>
           <Poster data-testid="movie-img" src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
         </Overdrive>
+        <AppContextConsumer>
+          {
+            value => <p>{value.title}</p>
+          }
+        </AppContextConsumer>
         <div>
           <h1 data-testid="movie-title">{movie.title}</h1>
           <h3 data-testid="movie-release-date">{movie.release_date}</h3>
